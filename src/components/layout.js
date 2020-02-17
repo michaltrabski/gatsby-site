@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          xxx
         }
       }
     }
@@ -34,6 +35,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
+        {data.site.siteMetadata.xxx}
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
