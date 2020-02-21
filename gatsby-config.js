@@ -1,11 +1,14 @@
+const yyy = "yyy"
+
 module.exports = {
   siteMetadata: {
     title: `test`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
-    xxx: "xxx",
+    yyy,
   },
   plugins: [
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-firesource",
       options: {
@@ -17,6 +20,7 @@ module.exports = {
             map: doc => ({
               title: doc.title,
               summary: doc.summary,
+              imageUrl: doc.imageUrl,
               author___NODE: doc.author.id,
             }),
           },
