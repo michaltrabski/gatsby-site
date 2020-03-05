@@ -13,6 +13,33 @@ exports.createPages = ({ graphql, actions }) => {
 
   const bookTemplate = path.resolve(`src/templates/bookTemplate.js`)
 
+  // const testTemplate = path.resolve(`src/templates/testTemplate.js`)
+  // const pages = [
+  //   {
+  //     slug: "strona1",
+  //     content: "content1",
+  //     subPages: [{ slug: "podstrona1", content: "subcontent1 lorem ipsum" }],
+  //   },
+  //   { slug: "strona2", content: "content2", subPages: {} },
+  // ]
+  // pages.forEach(page => {
+  //   createPage({
+  //     // Path for this page — required
+  //     path: `${page.slug}`,
+  //     component: testTemplate,
+  //     context: page,
+  //   })
+
+  //   page.subPages.forEach(page => {
+  //     createPage({
+  //       // Path for this page — required
+  //       path: `podstrona/${page.slug}`,
+  //       component: testTemplate,
+  //       context: page,
+  //     })
+  //   })
+  // })
+
   return graphql(
     `
       {
@@ -41,8 +68,6 @@ exports.createPages = ({ graphql, actions }) => {
     const data = result.data.allBook.edges
 
     data.forEach(book => {
-      console.log("data", data)
-
       createPage({
         // Path for this page — required
         path: `/book/${book.node.id}`,

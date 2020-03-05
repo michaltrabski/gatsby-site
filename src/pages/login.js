@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import Layout from "../components/layout"
-import { useAuth } from "../Firebase"
+import { FirebaseContext } from "../Firebase"
 
 const Login = () => {
   const [cred, setCred] = useState({
     email: "michal.trabski@gmail.com",
     password: "123123",
   })
-  const { firebase } = useAuth()
+  const { firebase } = useContext(FirebaseContext)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -18,30 +18,30 @@ const Login = () => {
 
   const handleChange = e => {
     e.persist()
-    // console.log(cred)
+    console.log(e)
 
     setCred(prevState => ({ ...prevState, [e.target.name]: e.target.value }))
   }
   return (
-    <Layout>
+    <section>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
           name="email"
           placeholder="email"
           value={cred.email}
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
         <input
           type="password"
           name="password"
           placeholder="password"
           value={cred.password}
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
         <button type="submit">Log in</button>
       </form>
-    </Layout>
+    </section>
   )
 }
 

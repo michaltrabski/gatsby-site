@@ -5,3 +5,9 @@
  */
 
 // You can delete this file if you're not using it
+const React = require("react")
+const Layaut = require("./src/components/layout").default
+
+exports.wrapPageElement = ({ element, props }) => {
+  return <Layaut {...props}>{element}</Layaut>
+}

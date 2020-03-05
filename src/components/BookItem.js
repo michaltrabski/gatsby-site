@@ -39,7 +39,7 @@ const BookItem = ({ title, author, summary, imageUrl, children }) => {
       <ContentWrapper>
         <h1>
           {title}
-          <span>{author.name}</span>
+          <span>{!!author ? author.name : "brak autora"}</span>
         </h1>
         <p>{summary}</p>
         <div>{children}</div>
